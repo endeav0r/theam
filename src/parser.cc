@@ -24,10 +24,14 @@ MathTree * Parser :: make_literal_mathTree (Token token)
         mt = new MathTree(MT_NUMBER);
         mt->s_value(token.to_double());
         return mt;
+    case TOK_VARIABLE :
+        mt = new MathTree(MT_VARIABLE, token.g_text());
+        return mt;
     }
     throw std::string("make_literal_mathTree called with invalid token");
     return NULL;
 }
+
 
 PostFixParser :: PostFixParser (std::list <Token> tokens)
 {

@@ -5,6 +5,7 @@
 
 enum {
     TOK_NUMBER,
+    TOK_VARIABLE,
     TOK_ADD,
     TOK_SUB,
     TOK_MUL,

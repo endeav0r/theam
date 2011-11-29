@@ -32,8 +32,8 @@ int main (int argc, char * argv[])
             debug_tokens(lexer.g_tokens());
         #endif
         PostFixParser parser(lexer.g_tokens());
-        Interpreter interpreter;
-        std::cout << "result: " << interpreter.evaluate(parser.g_mathTree()) << "\n";
+        Interpreter in;
+        std::cout << "result: " << in.infix_string(in.reduce_numbers(parser.g_mathTree())) << "\n";
     }
     catch (std::string e) {
         std::cout << e << "\n";

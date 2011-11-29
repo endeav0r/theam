@@ -45,7 +45,7 @@ void Lexer :: tokenize (std::string text)
     valid = true;
     for (i = 0; i < text.size(); i++) {
         if (    (text[i] < '0')
-                || (text[i] > '9')) {
+             || (text[i] > '9')) {
             valid = false;
             break;
         }
@@ -53,6 +53,20 @@ void Lexer :: tokenize (std::string text)
 
     if (valid) {
         this->tokens.push_back(Token(text, TOK_NUMBER));
+        return;
+    }
+
+    valid = true;
+    for (i = 0; i < text.size(); i++) {
+        if (    (text[i] < 'a')
+             || (text[i] > 'z')) {
+            valid = false;
+            break;
+        }
+    }
+
+    if (valid) {
+        this->tokens.push_back(Token(text, TOK_VARIABLE));
         return;
     }
     
