@@ -48,7 +48,8 @@ void Lexer :: tokenize (std::string text)
                 || (text[i] > '9')) {
             valid = false;
             break;
-    }}
+        }
+    }
 
     if (valid) {
         this->tokens.push_back(Token(text, TOK_NUMBER));
